@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2026-06-18 21:32:20
+  duration_mins: 1
+
+two:
+  start: 2026-06-18 21:32:20
+  duration_mins: 1
