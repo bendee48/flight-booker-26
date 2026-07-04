@@ -1,18 +1,29 @@
 <h1>Flights#index</h1>
 <p>Find me in app/views/flights/index.html.erb</p>
 
-<%= form_with url: flights_path, method: :get do |form| %>
+<%= form_with scope: :search, url: flights_path, method: :get do |form| %>
   <%= form.label :departure_airport %>
-  <%= form.collection_select :departure_airport, @airports, :code, :code, prompt: "Select departure airport" %>
+  <%= form.collection_select :departure_airport_id, @airports, :id, :code, prompt: "Select departure airport" %>
 
   <%= form.label :arrival_airport %>
-  <%= form.collection_select :arrival_airport, @airports, :code, :code, prompt: "Select arrival airport" %>
+  <%= form.collection_select :arrival_airport_id, @airports, :id, :code, prompt: "Select arrival airport" %>
 
   <%= form.label :departure_date %>
-  <%= form.collection_select :departure_date, @departure_times, :start, :formatted_date, prompt: "Select departure date" %>
+  <%= form.select :departure_date, options_for_select(@departure_dates), prompt: 'Select departure date' %>
 
   <%= form.label :passengers %>
   <%= form.number_field :passengers, value: 1, in: 1..9 %>
 
   <%= form.submit 'Search' %>
+<% end %>
+
+<% if @available_flights %>
+  <% @available_flights.each do |flight| %>
+    <%= flight.arrival_airport %>
+    <%= flight.departure_airport %>
+    <%= flight.start %>
+    <%= flight.duration_mins %>
+  <% end %>
+<% else %>
+  <p>No flights match those search terms</p>
 <% end %>
