@@ -17,12 +17,14 @@
   <%= form.submit 'Search' %>
 <% end %>
 
-<% if @search_submitted %>
-  <% if @available_flights.any? %> 
-    <%= render @available_flights %>
+<%= tag.div class: 'results' do %>
+  <% if @search_submitted %>
+    <% if @available_flights.any? %> 
+      <% render partial: "flight_form", locals: { flights: @available_flights, passengers: @number_of_passengers } %>
+    <% else %>
+      <p>No flights match those search terms.</p>
+    <% end %>
   <% else %>
-    <p>No flights match those search terms.</p>
+    <p>Use form to search for flights. Make sure all fields have a value.</p>
   <% end %>
-<% else %>
-  <p>Use form to search for flights. Make sure all fields have a value.</p>
 <% end %>

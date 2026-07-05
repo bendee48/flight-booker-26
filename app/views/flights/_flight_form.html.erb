@@ -1,0 +1,7 @@
+<%= form_with url: root_path, method: :get do |form| %>
+  <%= form.hidden_field :passengers, value: passengers %>
+  <% flights.each do |flight| %>
+    <%= render partial: "flight", locals: { flight: flight, form: form } %>
+  <% end %>
+  <%= form.submit 'Submit' %>
+<% end %>

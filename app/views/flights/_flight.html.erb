@@ -1,4 +1,4 @@
-<%= tag.div do %>
+<%= tag.div class: 'flight' do %>
   <%= tag.p do %>
     Departure Airport: <%= flight.departure_airport.code %>
   <% end %>
@@ -11,4 +11,5 @@
   <%= tag.p do %>
     Flight duration: <%= flight.duration_mins %>
   <% end %>
+  <%= form.radio_button :flight_id, flight.id %>
 <% end %>

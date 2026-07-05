@@ -8,6 +8,7 @@ class FlightsController < ApplicationController
       @available_flights = Flight.find_flights(departure_airport_id: search_params[:departure_airport_id],
                                                arrival_airport_id: search_params[:arrival_airport_id],
                                                departure_date: search_params[:departure_date])
+      @number_of_passengers = search_params[:passengers]
     end
   end
 
