@@ -1,0 +1,14 @@
+<%= tag.div do %>
+  <%= tag.p do %>
+    Departure Airport: <%= flight.departure_airport.code %>
+  <% end %>
+  <%= tag.p do %>
+    Arrival Airport: <%= flight.arrival_airport.code %>
+  <% end %>
+  <%= tag.p do %>
+    Departure time: <%= flight.start %>
+  <% end %>
+  <%= tag.p do %>
+    Flight duration: <%= flight.duration_mins %>
+  <% end %>
+<% end %>

@@ -17,13 +17,12 @@
   <%= form.submit 'Search' %>
 <% end %>
 
-<% if @available_flights %>
-  <% @available_flights.each do |flight| %>
-    <%= flight.arrival_airport %>
-    <%= flight.departure_airport %>
-    <%= flight.start %>
-    <%= flight.duration_mins %>
+<% if @search_submitted %>
+  <% if @available_flights.any? %> 
+    <%= render @available_flights %>
+  <% else %>
+    <p>No flights match those search terms.</p>
   <% end %>
 <% else %>
-  <p>No flights match those search terms</p>
+  <p>Use form to search for flights. Make sure all fields have a value.</p>
 <% end %>
