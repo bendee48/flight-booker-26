@@ -1,0 +1,27 @@
+<h1>Show Page</h1>
+
+<%= tag.h2 'Booking Info' %>
+<%= tag.p do %>
+  Flight code: <%= @booking.flight.id %>
+<% end %>
+<%= tag.p do %>
+  Date: <%= @booking.flight.start %>
+<% end %>
+<%= tag.p do %>
+  Departure Airport: <%= @booking.flight.departure_airport.code %>
+<% end %>
+<%= tag.p do %>
+  Arrival Airport: <%= @booking.flight.arrival_airport.code %>
+<% end %>
+<%= tag.p do %>
+  Duration: <%= @booking.flight.duration_mins %>
+<% end %>
+
+<% @booking.passengers.each do |passenger| %>
+  <%= tag.p do %>
+    Name: <%= passenger.name %>
+  <% end %>
+  <%= tag.p do %>
+    Email: <%= passenger.email %>
+  <% end %>
+<% end %>
